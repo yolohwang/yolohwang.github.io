@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/14/苹果审核/index.html">
 <meta property="og:site_name" content="Yolo">
 <meta property="og:description" content="关于iTunes Connect用于管理开发者自己的应用只有Mac机器，才能上传应用到ITC(archive后直接上传、Application Loader上传ipa)，推荐使用Application Loader对ITC的操作，要异常小心，其中不可逆的操作很多内购商品的Product ID：一旦确定永远不可更改，且不能重复，即使删除该商品，也不能再次使用这个ProductID，但不同的开发者账户">
-<meta property="og:updated_time" content="2017-03-14T16:03:49.000Z">
+<meta property="og:updated_time" content="2017-03-14T16:15:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="苹果审核相关记录">
 <meta name="twitter:description" content="关于iTunes Connect用于管理开发者自己的应用只有Mac机器，才能上传应用到ITC(archive后直接上传、Application Loader上传ipa)，推荐使用Application Loader对ITC的操作，要异常小心，其中不可逆的操作很多内购商品的Product ID：一旦确定永远不可更改，且不能重复，即使删除该商品，也不能再次使用这个ProductID，但不同的开发者账户">
@@ -326,7 +326,27 @@
         <h2 id="关于iTunes-Connect"><a href="#关于iTunes-Connect" class="headerlink" title="关于iTunes Connect"></a>关于iTunes Connect</h2><p>用于管理开发者自己的应用<br>只有Mac机器，才能上传应用到ITC(archive后直接上传、Application Loader上传ipa)，推荐使用Application Loader<br>对ITC的操作，要异常小心，其中不可逆的操作很多<br>内购商品的Product ID：一旦确定永远不可更改，且不能重复，即使删除该商品，也不能再次使用这个ProductID，但不同的开发者账户可以设置相同的ProductID(2016年下半年修改的规则)<br>应用的Bundle ID：可以理解为应用的id，一旦提交应用后就永远不可以更改<br><a id="more"></a><br>截图、App Name和Keywords：通过审核后不能更改，必须重新提交新版本才可以修改，更新内容和app描述偶尔会锁定不可修改(2017.03.09)，所以所有的提审物料最好在提审前全部更新上去<br>公司帐号($99)第一次建应用时会需要额外填写ognization(一般填写公司名字)确定后就不可以再更改了</p>
 <h2 id="审核方式及周期"><a href="#审核方式及周期" class="headerlink" title="审核方式及周期"></a>审核方式及周期</h2><p>分为自动审核和人工审核<br>自动审核在上传过程中完成，应用必须构建完成且状态显示正常才标志自动审核完成，大约半小时。<br>自动审核完成后进入waiting for review，大约等2-4个工作日开始人工审核，即in review状态，进入in review后，大约等1个工作日审核完成<br>如果waiting for review或in review的时间过长，可以通过ITC后台联系苹果询问。</p>
 <h2 id="杯具的原因和处理"><a href="#杯具的原因和处理" class="headerlink" title="杯具的原因和处理"></a>杯具的原因和处理</h2><h3 id="自动审核过程杯具：都是技术问题"><a href="#自动审核过程杯具：都是技术问题" class="headerlink" title="自动审核过程杯具：都是技术问题"></a>自动审核过程杯具：都是技术问题</h3><p>包签名错误、调用苹果禁用的api、icon尺寸错误、等等等等…<br>自动审核杯具后，立即修改问题重新打包上传</p>
-<h3 id="人工审核过程常见的杯具原因（主要是手游相关）："><a href="#人工审核过程常见的杯具原因（主要是手游相关）：" class="headerlink" title="人工审核过程常见的杯具原因（主要是手游相关）："></a>人工审核过程常见的杯具原因（主要是手游相关）：</h3><p>1.提交的资料或游戏中涉及到关于其他手机平台软件的推广，如对同一游戏，在IOS中做Android平台的推广介绍；资料中也不能涉及到任何其他AppStore上游戏的名字。<br>2.对于没有使用的设备，不要尝试获取其使用权限。例如，用adobe air3.8及以下版本打包的程序，在IOS7上会弹出请求使用麦克风的提示，但是游戏本身并没有真正使用麦克风，因此包会被Reject<br>3.游戏服访问不畅或者不能访问<br>4.游戏内出现任何“测试”“体验”相关字眼，包括游戏服名称也不能包含此类字眼<br>5.提交的截图部分，一定要有完整的游戏截图，并能够体现整个游戏的场景，千万不要打雾化或者模糊效果；截图不能色情裸露，因为苹果要求即使咱们游戏本身是12+，截图也要是4+的级别<br>6.游戏的名字，最好不要跟其他游戏或者品牌过于类似，如果涉及到版权问题，杯具是一定的<br>7.赌博或者是兑换码功能是一定杯具的；<br>8.有“退出游戏”的按钮是一定杯具的<br>9.ITC上挂的IAP商品，有的在游戏内找不到<br>10.不能用Apple的产品作为奖品，比如用iphone、macbook之类作为活动奖品<br>11.如果要提交宣传视频，则视频要完整体现游戏过程，可以稍作渲染，但是千万不要把CG放上来<br>12.登录需要下载资源文件的游戏，其下载文件可以放在Library的Caches目录下，也可以放在document或者Library下但是需要设置（Objective-C：NSURLIsExcludedFromBackupKey、Unity3D：UnityEngine.iPhone.SetNoBackupFlag）防止被iCloud备份<br>13.必须要用官方的Xcode7及以上版本打包，每个接入的游戏务必加上一个URLScheme(格式：gaea+游戏Apple ID)以备不时之需<br>14.除了韩国这种有明确法律规定进行游戏内分级的地区，其他地区不要在游戏内进行任何年龄分级的标示，只需要在提审时选择合适的分级即可<br>15.游戏商店语言项请设置info.plist参数 Localization native development region，此参数默认是英文(例如中国区游戏设置China等)<br>16.ITC里提审视频的编解码器必须是H.264，AAC(MPEG-4 Video，AAC等格式视频上传不成功)，注意视频中不要出现任何手机的边框<br>17.微信、QQ等三方登陆如必须跳转APP授权才能登陆的，需在审核时隐藏处理。<br>18.美国审核人员访问大陆的网络有时会出现不稳定的情况以至于审核被拒，所以需要搭建美国服务器(提审服)。<br>19.提交审核的ipa(dist包)必须由Xcode正常一步一步导出，不可以用app文件放进iTunes自动生成ipa(即使审核通过上线后也可能出现异常，例如Apple商品信息获取不到)。</p>
+<h3 id="人工审核过程常见的杯具原因（主要是手游相关）："><a href="#人工审核过程常见的杯具原因（主要是手游相关）：" class="headerlink" title="人工审核过程常见的杯具原因（主要是手游相关）："></a>人工审核过程常见的杯具原因（主要是手游相关）：</h3><ol>
+<li>提交的资料或游戏中涉及到关于其他手机平台软件的推广，如对同一游戏，在IOS中做Android平台的推广介绍；资料中也不能涉及到任何其他AppStore上游戏的名字。</li>
+<li>对于没有使用的设备，不要尝试获取其使用权限。例如，用adobe air3.8及以下版本打包的程序，在IOS7上会弹出请求使用麦克风的提示，但是游戏本身并没有真正使用麦克风，因此包会被Reject</li>
+<li>游戏服访问不畅或者不能访问</li>
+<li>游戏内出现任何“测试”“体验”相关字眼，包括游戏服名称也不能包含此类字眼</li>
+<li>提交的截图部分，一定要有完整的游戏截图，并能够体现整个游戏的场景，千万不要打雾化或者模糊效果；截图不能色情裸露，因为苹果要求即使咱们游戏本身是12+，截图也要是4+的级别</li>
+<li>游戏的名字，最好不要跟其他游戏或者品牌过于类似，如果涉及到版权问题，杯具是一定的</li>
+<li>赌博或者是兑换码功能是一定杯具的；</li>
+<li>有“退出游戏”的按钮是一定杯具的</li>
+<li>ITC上挂的IAP商品，有的在游戏内找不到</li>
+<li>不能用Apple的产品作为奖品，比如用iphone、macbook之类作为活动奖品</li>
+<li>如果要提交宣传视频，则视频要完整体现游戏过程，可以稍作渲染，但是千万不要把CG放上来</li>
+<li>登录需要下载资源文件的游戏，其下载文件可以放在Library的Caches目录下，也可以放在document或者Library下但是需要设置（Objective-C：NSURLIsExcludedFromBackupKey、Unity3D：UnityEngine.iPhone.SetNoBackupFlag）防止被iCloud备份</li>
+<li>必须要用官方的Xcode7及以上版本打包，每个接入的游戏务必加上一个URLScheme(格式：gaea+游戏Apple ID)以备不时之需</li>
+<li>除了韩国这种有明确法律规定进行游戏内分级的地区，其他地区不要在游戏内进行任何年龄分级的标示，只需要在提审时选择合适的分级即可</li>
+<li>游戏商店语言项请设置info.plist参数 Localization native development region，此参数默认是英文(例如中国区游戏设置China等)</li>
+<li>ITC里提审视频的编解码器必须是H.264，AAC(MPEG-4 Video，AAC等格式视频上传不成功)，注意视频中不要出现任何手机的边框</li>
+<li>微信、QQ等三方登陆如必须跳转APP授权才能登陆的，需在审核时隐藏处理。</li>
+<li>美国审核人员访问大陆的网络有时会出现不稳定的情况以至于审核被拒，所以需要搭建美国服务器(提审服)。</li>
+<li>提交审核的ipa(dist包)必须由Xcode正常一步一步导出，不可以用app文件放进iTunes自动生成ipa(即使审核通过上线后也可能出现异常，例如Apple商品信息获取不到)。</li>
+</ol>
 <h2 id="杯具的原因和处理-1"><a href="#杯具的原因和处理-1" class="headerlink" title="杯具的原因和处理"></a>杯具的原因和处理</h2><p>Binary Reject：说明包内有问题或者服务器有问题；必须重新走一遍审核流程(重新提包或重新提审原包)，最理想的情况，大约等1~2个工作日开审，大约再等1个工作日有结果；<br>Metadata Reject：说明是提交的文字说明、图片等有问题；不需要重新提交包，只需要修改相关文字和图片，重新点提交，大约等1-2个工作日开始重新审核。<br>因为审核是人为操作，所以对于不是十分充足的杯具理由，可以写信申诉。例如，有些购买项审核人员没有找到所以拒绝了应用，我们可以直接回复信息，指出购买项的位置。</p>
 <p>更详细的信息，请查阅苹果<a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="external">review guide</a></p>
 
@@ -374,6 +394,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/技术博客收录/" rel="prev" title="技术博客收录">
+                技术博客收录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -445,7 +469,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

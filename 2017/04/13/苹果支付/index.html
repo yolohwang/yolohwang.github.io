@@ -99,7 +99,7 @@ StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含
 <meta property="og:description" content="苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
 StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含如下：
 12345678910111213#import &amp;lt;StoreKit/SKCloudServiceController.h&amp;">
-<meta property="og:updated_time" content="2017-04-17T09:53:40.000Z">
+<meta property="og:updated_time" content="2017-04-17T09:54:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="苹果内购">
 <meta name="twitter:description" content="苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
@@ -339,29 +339,7 @@ StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含
 <h3 id="-2"><a href="#-2" class="headerlink" title=""></a><storekit skpaymenttransaction.h=""></storekit></h3><p>SKPaymentTransaction 定义了SKPaymentQueue里的订单对象transaction，每一个被添加到SKPaymentQueue里的SKPayment都会创建一个transaction，transaction会一直存在除非被finish。</p>
 <h3 id="-3"><a href="#-3" class="headerlink" title=""></a><storekit skrequest.h=""></storekit></h3><p>SKRequest是向Apple AppStore请求商品信息的抽象类，一般使用其子类SKProductsRequest请求获取设置在ITC里的商品具体信息。</p>
 <h3 id="-4"><a href="#-4" class="headerlink" title=""></a><storekit skproduct.h=""></storekit></h3><p>SKProduct是SKProductsRequest请求回调SKProductsResponse对象的一部分(只能由此获得SKProduct)，其是ITC里注册的商品。</p>
-<h2 id="商品的类型"><a href="#商品的类型" class="headerlink" title="商品的类型"></a>商品的类型</h2><table>
-<thead>
-<tr>
-<th>商品类型</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>$1600</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>$12</td>
-</tr>
-<tr>
-<td>Pipe</td>
-<td>$1</td>
-</tr>
-</tbody>
-</table>
-<h2 id="代码具体实现"><a href="#代码具体实现" class="headerlink" title="代码具体实现"></a>代码具体实现</h2>
+<h2 id="商品的类型"><a href="#商品的类型" class="headerlink" title="商品的类型"></a>商品的类型</h2><h2 id="代码具体实现"><a href="#代码具体实现" class="headerlink" title="代码具体实现"></a>代码具体实现</h2>
       
     </div>
 

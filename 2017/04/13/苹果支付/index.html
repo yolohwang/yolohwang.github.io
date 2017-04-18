@@ -89,22 +89,22 @@
 
 
 
-<meta name="description" content="苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
+<meta name="description" content="简介苹果内购是指用户使用AppleID进行app内付费扣款的购买行为，苹果规定app虚拟货币的购买只能使用内购不然审核会被拒绝，绝大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
 StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含如下：
-12345678910111213#import &amp;lt;StoreKit/SKCloudServiceController.h&amp;">
+12345678910111213#import &amp;lt;StoreKit/SKC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="In-App Purchase">
 <meta property="og:url" content="http://yoursite.com/2017/04/13/苹果支付/index.html">
 <meta property="og:site_name" content="Yolo">
-<meta property="og:description" content="苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
+<meta property="og:description" content="简介苹果内购是指用户使用AppleID进行app内付费扣款的购买行为，苹果规定app虚拟货币的购买只能使用内购不然审核会被拒绝，绝大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
 StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含如下：
-12345678910111213#import &amp;lt;StoreKit/SKCloudServiceController.h&amp;">
-<meta property="og:updated_time" content="2017-04-18T07:15:44.000Z">
+12345678910111213#import &amp;lt;StoreKit/SKC">
+<meta property="og:updated_time" content="2017-04-18T09:00:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="In-App Purchase">
-<meta name="twitter:description" content="苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
+<meta name="twitter:description" content="简介苹果内购是指用户使用AppleID进行app内付费扣款的购买行为，苹果规定app虚拟货币的购买只能使用内购不然审核会被拒绝，绝大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。主要参考官方文档
 StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含如下：
-12345678910111213#import &amp;lt;StoreKit/SKCloudServiceController.h&amp;">
+12345678910111213#import &amp;lt;StoreKit/SKC">
 
 
 
@@ -329,13 +329,13 @@ StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含
       
 
       
-        <p>苹果内购一般是手机游戏需要接入的支付渠道，虚拟货币必须得接入内购不然审核会被拒绝，大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。<br>主要参考<a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Introduction.html#//apple_ref/doc/uid/TP40008267" target="_blank" rel="external">官方文档</a></p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>苹果内购是指用户使用AppleID进行app内付费扣款的购买行为，苹果规定app虚拟货币的购买只能使用内购不然审核会被拒绝，绝大部分情况下苹果会抽取三成收入。以下文章主要记录苹果内购实现以及一些注意事项记录。<br>主要参考<a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Introduction.html#//apple_ref/doc/uid/TP40008267" target="_blank" rel="external">官方文档</a></p>
 <h2 id="StoreKit头文件简单介绍"><a href="#StoreKit头文件简单介绍" class="headerlink" title="StoreKit头文件简单介绍"></a>StoreKit头文件简单介绍</h2><p>使用IAP需要导入StoreKit头文件 <storekit storekit.h="">里面包含如下：</storekit></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKCloudServiceController.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKCloudServiceSetupViewController.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKDownload.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKError.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKPayment.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKPaymentQueue.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKPaymentTransaction.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKProduct.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKProductsRequest.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKReceiptRefreshRequest.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKRequest.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/SKStoreProductViewController.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;StoreKit/StoreKitDefines.h&gt;</span></span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>主要使用到以下几个类</p>
 <ol>
-<li><p>SKPayment.h<br>SKPayment定义了向Apple AppStore付款的请求，由SKProduct初始化，包括商品的ID、应用用户名字、购买数量等，其所有属性都是只读的，其子类SKMutablePayment 属性跟父类一样但是是可以赋值的，一般会用到applicationUsername和quantity(商品的购买数量，默认值是1)。</p>
+<li><p>SKPayment.h<br>SKPayment定义了向Apple AppStore付款的请求，由SKProduct初始化，包括商品的ID、应用用户名字、购买数量等，其所有属性都是只读的，其子类SKMutablePayment 属性跟父类一样但是是可以赋值的，一般会用到applicationUsername(SKMutablePayment生成，SKPaymentTransaction只读，这个参数善用可以帮助追踪用户订单信息)和quantity(商品的购买数量，默认值是1)。</p>
 </li>
 <li><p>SKPaymentQueue.h<br>SKPaymentQueue 是由AppStore 处理的付款交易队列，SKPayment一旦被添加到SKPaymentQueue里就开始向用户展示付费提示及相关操作，用户操作的结果会通过observer的回调告知，交易队列里的订单如果没有被finish则会一直存在，每次启动添加observer后，其订单状态回调会自动调用。</p>
 </li>
@@ -391,7 +391,7 @@ StoreKit头文件简单介绍使用IAP需要导入StoreKit头文件 里面包含
 </ul>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">receipt =     &#123;</div><div class="line">bid = <span class="string">"com.xxx.xxx"</span>;</div><div class="line">bvrs = <span class="number">1</span>;</div><div class="line"><span class="string">"item_id"</span> = <span class="number">1173419767</span>;</div><div class="line"><span class="string">"original_purchase_date"</span> = <span class="string">"2017-04-14 07:47:03 Etc/GMT"</span>;</div><div class="line"><span class="string">"original_purchase_date_ms"</span> = <span class="number">1492156023000</span>;</div><div class="line"><span class="string">"original_purchase_date_pst"</span> = <span class="string">"2017-04-14 00:47:03 America/Los_Angeles"</span>;</div><div class="line"><span class="string">"original_transaction_id"</span> = <span class="number">1000000290508581</span>;</div><div class="line"><span class="string">"product_id"</span> = <span class="string">"com.xxx.cn.xxx.xxxx"</span>;</div><div class="line"><span class="string">"purchase_date"</span> = <span class="string">"2017-04-14 07:47:03 Etc/GMT"</span>;</div><div class="line"><span class="string">"purchase_date_ms"</span> = <span class="number">1492156023000</span>;</div><div class="line"><span class="string">"purchase_date_pst"</span> = <span class="string">"2017-04-14 00:47:03 America/Los_Angeles"</span>;</div><div class="line">quantity = <span class="number">2</span>;</div><div class="line"><span class="string">"transaction_id"</span> = <span class="number">1000000290508581</span>;</div><div class="line"><span class="string">"unique_identifier"</span> = <span class="number">9e6</span>ff1ee0961e3b323569b3721b8056c0bc8bae4;</div><div class="line"><span class="string">"unique_vendor_identifier"</span> = <span class="string">"6B6288B1-72DA-4BFC-99EA-87A8A4FAB5F7"</span>;</div><div class="line">&#125;;</div><div class="line">status = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>appStoreReceiptURL获取的receipt解析返回数据中订单信息放在一个in_app数组中，这个数组可能一般情况下只有当前购买成功订单的信息，但是也有可能有多个订单信息，除了当前订单剩下的都是之前购买成功但是没有被finish的订单，也就是说所有没有被finish的订单始终会在receipt里，直到被finish。<br>相关测试case：<br>case1: 如果之前有transaction没有finished，相同商品再次充值时，点击购买后 会弹出提示“您已购买此App内购买项目，此项目将免费恢复”（此时不会扣钱），并且不再触发Purchased回调(正常情况可能也不会finish)，下次app启动时一旦设置observer，购买回调会两次触发purchased，并且transaction_id相同 均为最初那笔订单的transaction_id,如果第二次相同商品的订单也没有finish，后面再次购买此商品时就不在产生transaction，也就是说相同商品的transaction最多有两笔(transaction_id相同)在SKPaymentQueue中。<br>case2: 在有订单没有finished情况下，再次购买了一个不相同的商品，购买界面会显示 购买两份此商品，点击购买成功后，票据in_app里解出两个订单号 一个是此笔订单的另一个是之前没有finished掉的订单。如果此订单也没有被finished，再次启动一旦设置observer 会调用两次purchased。</p>
-<p>关于苹果票据的有效性验证，除了向苹果验证票据是真实的，还需要验证票据是否本app的，有些iap修改器可以串改订单信息用一个其他app商品或者用此app一个低价格订单来骗取app服务器获取app虚拟商品，所以票据解析后要验证商品ID和商品价格（这些都是票据里真实信息，无法被修改的），迪但是2016年下半年之后，商品ID也不能作为一个依据了（不同的开发者账号里可以设置相同的商品ID），所以还需要验证票据里的bundle id(唯一)。</p>
+<p>关于苹果票据的有效性验证，除了向苹果验证票据是真实的，还需要验证票据是否是本app的，有些iap修改器可以串改订单信息用一个其他app商品或者用此app一个低价格订单来骗取app服务器获取app虚拟商品，所以票据解析后要验证商品ID和商品价格（这些都是票据里真实信息，无法被修改的），迪但是2016年下半年之后，商品ID也不能作为一个依据了（不同的开发者账号里可以设置相同的商品ID），所以还需要验证票据里的bundle id(唯一)。</p>
 <p>苹果票据解析失败 status codes</p>
 <pre><code class="objectivec">
 <span class="number">21000</span> The App Store could not read the JSON object you provided.
@@ -406,8 +406,16 @@ Only returned <span class="keyword">for</span> iOS <span class="number">6</span>
 <span class="number">21008</span> This receipt is from the production environment, but it was sent to the test environment <span class="keyword">for</span> verification. Send it to the production environment instead.
 </code></pre>
 <ol>
-<li>购买成功后finish transaction<br>[[SKPaymentQueue defaultQueue] finishTransaction:transaction];<br>不管是成功的还是失败的，所有的订单最后都必须需要finish，不然会一直存在SKPaymentQueue中，一般情况下都是最后一步finish transaction，例如app先向苹果验证票据有效，然后通知app服务器进行购买成功的相关操作，最后反馈给客户端进行finish transaction，在这些过程中有可能中间某步异常造成订单没有被finish，app下次启动时 会自动回调purchased，直到finish。</li>
+<li>购买成功后finish transaction<br>[[SKPaymentQueue defaultQueue] finishTransaction:transaction];<br>不管是成功的还是失败的，所有的订单最后都必须需要finish，不然会一直存在SKPaymentQueue中，一般情况下都是最后一步finish transaction，例如app先向苹果验证票据有效，然后通知app服务器进行购买成功的相关操作，最后反馈给客户端进行finish transaction。</li>
 </ol>
+<h2 id="掉单"><a href="#掉单" class="headerlink" title="掉单"></a>掉单</h2><ol>
+<li>用户在付款成功后由于网络或者其他异常情况没有返回transaction，产生掉单(用户扣钱了但是没得到相应的商品)。</li>
+<li>App在上传receipt给服务器时发生了网络或者其他异常情况，产生了掉单。</li>
+<li>App服务器向Apple验证票据时返回数据异常或不返回数据，造成订单请求超时，产生了掉单。</li>
+<li>奇葩情况的掉单，例如有的用户购买需要到AppStore输入银行的短信验证码(observer先failed再purchased)。<br>按照最后一步处理finish的逻辑，这些情况下transaction应该都没有被finish，app下次启动时会自动回调purchased，再次走完充值流程，直到finish(客户端自动补单)，补单这里涉及到很多用户信息和订单信息的匹配处理(友情提醒：善用applicationUsername)，比较复杂，根据实际情况(前后台逻辑)处理。</li>
+</ol>
+<p>Demo购买逻辑是app启动时就request所有的商品拿到products，后面用户购买时可以直接生成payment进行购买操作，免去了用户购买时还需要去拉取product的等待时间。通过以上代码可以完成消耗型和非续订订阅商品主要处理，非消耗型和自动续订订阅在实际项目中使用的不多，非消耗型商品还需要恢复购买处理([[SKPaymentQueue defaultQueue] restoreCompletedTransactions] Demo中没再处理)。</p>
+<p>Demo地址 <a href="https://github.com/yolohwang/YoloIAP" target="_blank" rel="external">GitHub</a></p>
 
       
     </div>
@@ -590,7 +598,7 @@ Only returned <span class="keyword">for</span> iOS <span class="number">6</span>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#StoreKit头文件简单介绍"><span class="nav-number">1.</span> <span class="nav-text">StoreKit头文件简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#商品的类型"><span class="nav-number">2.</span> <span class="nav-text">商品的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码具体实现"><span class="nav-number">3.</span> <span class="nav-text">代码具体实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StoreKit头文件简单介绍"><span class="nav-number">2.</span> <span class="nav-text">StoreKit头文件简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#商品的类型"><span class="nav-number">3.</span> <span class="nav-text">商品的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码具体实现"><span class="nav-number">4.</span> <span class="nav-text">代码具体实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#掉单"><span class="nav-number">5.</span> <span class="nav-text">掉单</span></a></li></ol></div>
             
 
           </div>
